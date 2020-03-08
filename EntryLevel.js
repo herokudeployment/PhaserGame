@@ -86,6 +86,7 @@ class EntryLevel extends Phaser.Scene {
 
         this.physics.add.collider(this.moneyStack, this.platforms);
         this.physics.add.collider(this.dynamites, this.platforms);
+        this.physics.add.collider(this.dynamites, this.ground);
         this.physics.add.collider(this.moneyStack, this.ground);
 
         function collectMoney(player, money) {

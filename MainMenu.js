@@ -7,6 +7,7 @@ class MainMenu extends Phaser.Scene {
         this.load.image('menuBackground', 'assets/world/menubackground.png');
         this.load.image('play_button', 'assets/world/play_button.png');
         this.load.audio('menu_music', 'assets/music/menu_music.mp3');
+
     }
 
     create() {
