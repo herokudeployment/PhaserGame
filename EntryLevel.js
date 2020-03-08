@@ -21,17 +21,16 @@ class EntryLevel extends Phaser.Scene {
         this.load.image('money', 'assets/world/money.PNG');
         this.load.image('dynamite', 'assets/world/dynamite.png');
         this.load.audio('dynamite_explosion', 'assets/effects/dynamite_explosion.mp3');
+        this.load.audio('money_collect', 'assets/effects/moneycollect.wav');
         this.load.spritesheet('player', 'assets/characters/player.png', { frameWidth: 32, frameHeight: 48 });
     }
 
     create() {
         this.add.image(400, 300, 'sky');
-        var music = this.sound.add('dynamite_explosion');
-
+        var dynamiteExplosionSound = this.sound.add('dynamite_explosion');
+        var moneyColectSound = this.sound.add('money_collect');
         this.platforms = this.physics.add.staticGroup();
         this.ground = this.physics.add.staticGroup();
-
-
 
         this.platforms.create(600, 350, 'platform');
         this.platforms.create(50, 250, 'platform');
@@ -90,9 +89,11 @@ class EntryLevel extends Phaser.Scene {
         this.physics.add.collider(this.moneyStack, this.ground);
 
         function collectMoney(player, money) {
+
             money.disableBody(true, true);
             this.score += 10;
             this.scoreText.setText('Score: ' + this.score);
+            moneyColectSound.play();
 
             if (this.moneyStack.countActive(true) === 0) {
 
@@ -115,7 +116,7 @@ class EntryLevel extends Phaser.Scene {
 
         function hitDynamite(player, dynamite) {
             this.physics.pause();
-            music.play();
+            dynamiteExplosionSound.play();
 
             player.setTint(0xff0000);
 
