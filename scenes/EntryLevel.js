@@ -124,7 +124,7 @@ class EntryLevel extends Phaser.Scene {
             player.anims.play('turn');
             this.gameOver = true;
             if (this.gameOver) {
-                this.gameOverMessage = this.add.text(260, 200, 'score: 0', { fontSize: '90px', fill: '#FF0000', fontWeight: 'bold' });
+                this.gameOverMessage = this.add.text(40, 120, 'score: 0', { fontSize: '130px', fill: '#000000', fontFamily: '"Roboto Condensed"' });
                 this.gameOverMessage.setText('Game Over');
             }
         }
@@ -160,7 +160,7 @@ class EntryLevel extends Phaser.Scene {
         }
 
         if (this.cursors.up.isDown && this.player.body.touching.down) {
-            this.player.setVelocityY(-480);
+            this.player.setVelocityY(-450);
         }
     }
 }
