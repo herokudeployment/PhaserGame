@@ -1,6 +1,6 @@
 class MainMenu extends Phaser.Scene {
     constructor() {
-        super('bootGame')
+        super('mainMenu')
     }
 
     preload() {
@@ -21,10 +21,6 @@ class MainMenu extends Phaser.Scene {
             self.scene.start('entryLevel');
             music.stop()
         });
-
-    }
-
-    update() {
 
     }
 }

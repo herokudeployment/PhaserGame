@@ -15,7 +15,7 @@ class EntryLevel extends Phaser.Scene {
     gameOver = false;
 
     preload() {
-        this.load.image('sky', 'assets/world/sky.png');
+        this.load.image('background', 'assets/world/background.png');
         this.load.image('ground', 'assets/world/ground.png');
         this.load.image('platform', 'assets/world/platform.png');
         this.load.image('money', 'assets/world/money.PNG');
@@ -26,7 +26,7 @@ class EntryLevel extends Phaser.Scene {
     }
 
     create() {
-        this.add.image(400, 300, 'sky');
+        this.add.image(400, 300, 'background');
         var dynamiteExplosionSound = this.sound.add('dynamite_explosion');
         var moneyColectSound = this.sound.add('money_collect');
         this.platforms = this.physics.add.staticGroup();
